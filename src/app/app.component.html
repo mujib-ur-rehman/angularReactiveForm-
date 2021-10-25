@@ -2,18 +2,32 @@
 <form [formGroup]="loginForm" (ngSubmit)="collectdata()">
   <div>
     <label>Email Id</label><br>
-    <input type="email" formControlName="email" placeholder="email"><br>
+    <input type="email" formControlName="email" placeholder="Email"><br>
     <label>Password</label><br>
-    <input type="password" formControlName="password" placeholder="password">
+    <input type="password" formControlName="password" placeholder="Password"><br>
+    <div formGroupName="address">
+      <h4>Address:</h4>
+      <label for="street">Street: </label>
+      <input id="street" type="text" formControlName="street"><br>
+
+      <label for="city">City: </label>
+      <input id="city" type="text" formControlName="city"><br>
+
+      <label for="state">State: </label>
+      <input id="state" type="text" formControlName="state"><br>
+
+      <label for="zip">Zip Code: </label>
+      <input id="zip" type="text" formControlName="zip"><br>
+    </div>
   </div>
 
   <div>
     <h3>Course Selection</h3>
-    <input type="radio" formControlName="food" name="fav_language" value="HTML">
+    <input type="radio" formControlName="fav_language" name="fav_language" value="HTML">
     <label>HTML</label><br>
-    <input type="radio" formControlName="food" name="fav_language" value="CSS">
+    <input type="radio" formControlName="fav_language" name="fav_language" value="CSS">
     <label>CSS</label><br>
-    <input type="radio" formControlName="food" name="fav_language" value="JavaScript">
+    <input type="radio" formControlName="fav_language" name="fav_language" value="JavaScript">
     <label>JavaScript</label>
   </div>
 
@@ -28,7 +42,7 @@
   </div>
   <br>
   <div>
-    <button type="submit">Login</button>
+    <button type="submit" [disabled]="loginForm.invalid">Login</button>
   </div>
 
 </form>
